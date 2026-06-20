@@ -2,9 +2,9 @@
 
 Environnement de développement local de Camap sous Minikube (Windows 11 + Docker Desktop).
 
-> **Ce dépôt est conçu pour être forké.**
+> **Ce dépôt est un template.**
 > Les `values.yaml` des charts (images, URLs, secrets, ressources…) sont à adapter à votre environnement.
-> Forkez le dépôt sur GitHub avant de commencer, puis travaillez sur votre propre fork.
+> Cliquer sur **"Use this template"** sur GitHub pour créer votre propre copie, puis travaillez sur celle-ci.
 >
 > Après le fork, mettre à jour l'URL du dépôt dans les trois fichiers suivants
 > (remplacer `CAMAP-APP` par votre compte/organisation GitHub) :
