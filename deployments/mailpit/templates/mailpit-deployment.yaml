@@ -4,8 +4,6 @@ metadata:
   name: mailpit
   labels:
     app: mailpit
-  annotations:
-    secret.reloader.stakater.com/reload: {{ .Values.mailpit.smtpTls.existingSecret | quote }}
 spec:
   replicas: {{ .Values.mailpit.replicaCount }}
   selector:
