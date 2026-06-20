@@ -67,7 +67,7 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 
 Dans l'interface Argo CD : **Settings** > **Repositories** > **Connect Repo using HTTPS**
 
-- Repository URL : `https://github.com/CAMAP-APP/minikube-camap.git`
+- Repository URL : `https://github.com/<VOTRE_REPO>/minikube-camap.git`
 
 ---
 
