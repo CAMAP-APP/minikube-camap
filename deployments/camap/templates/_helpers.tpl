@@ -31,18 +31,6 @@ deny {{ . }};
 {{- end }}
 {{- end }}
 
-{{/*
-  Snippet serveur Ingress Web
-*/}}
-{{- define "camap.ingress.webServerSnippet" -}}
-{{- if .Values.ingress.web.security.blockInstall }}
-location = /install {
-  deny all;
-  return 403;
-}
-{{- end }}
-{{- end }}
-
 {{/* TLS secret pour l’API */}}
 {{- define "camap.tlsSecretNameApi" -}}
 {{- if .Values.ingress.api.tls.secretName -}}
