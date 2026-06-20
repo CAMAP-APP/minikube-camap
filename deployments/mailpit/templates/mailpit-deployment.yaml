@@ -35,6 +35,7 @@ spec:
               value: {{ .Values.mailpit.config.maxAge | quote }}
             - name: MP_MAX_MESSAGES
               value: {{ .Values.mailpit.config.maxMessages | quote }}
+          securityContext:              
             allowPrivilegeEscalation: false
             capabilities:
               drop:
