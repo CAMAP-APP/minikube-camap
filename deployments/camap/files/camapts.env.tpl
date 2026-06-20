@@ -49,6 +49,9 @@ FRONT_URL=${FRONT_URL}
 FRONT_GRAPHQL_URL=/graphql
 HX_TRIGGER_CRONS=${HX_TRIGGER_CRONS}
 
+NODE_ENV=developpement
+# NODE_ENV=production
+
 #
 #   THEME
 #
