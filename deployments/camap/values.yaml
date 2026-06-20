@@ -1,12 +1,12 @@
 image:
   api:
     repository: ghcr.io/camap-app/camap-ts
-    tag: "v3.0.6"
+    tag: "feature-smtp-ignore-tls"
     pullPolicy: IfNotPresent
 
   web:
     repository: ghcr.io/camap-app/camap-hx
-    tag: "v3.0.6"
+    tag: "mantis-346"
     pullPolicy: IfNotPresent
 
   mysql:
@@ -74,9 +74,10 @@ camapConfig:
 
   # Mailpit in-cluster, pas de TLS sur SMTP en local
   smtpHost: mailpit.mailpit.svc.cluster.local
-  smtpTlsServername: ""
   smtpPort: "1025"
   smtpSecure: "false"
+  smtpIgnoreTls: "true"
+  smtpTlsServername: ""
 
   camapHost: "http://camap.local"
   # camapHost: "camap.local"

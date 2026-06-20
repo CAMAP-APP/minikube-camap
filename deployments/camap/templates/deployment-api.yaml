@@ -66,6 +66,8 @@ spec:
               value: {{ .Values.camapConfig.smtpPort | quote }}
             - name: SMTP_SECURE
               value: {{ .Values.camapConfig.smtpSecure | quote }}
+            - name: SMTP_IGNORE_TLS
+              value: {{ .Values.camapConfig.smtpIgnoreTls | quote }}
             - name: SMTP_TLS_SERVERNAME
               value: {{ .Values.camapConfig.smtpTlsServername | quote }}
 
