@@ -109,6 +109,8 @@ spec:
           env:
             - name: TZ
               value: "Europe/Paris"
+            - name: NODE_ENV
+              value: {{ .Values.camapConfig.nodeEnv | quote }}
 
           ports:
             - containerPort: 3010

@@ -79,6 +79,7 @@ camapConfig:
   smtpSecure: "false"
 
   camapHost: "http://camap.local"
+  # camapHost: "camap.local"
   camapLocalHost: "http://camap-web"
   camapBridgeApi: "http://api.camap.local"
   camapBridgeApiInternal: "http://camap-api:3010"
@@ -89,6 +90,9 @@ camapConfig:
   themeId: "default"
 
   disableBruteForce: "true"
+
+  # nodeEnv: [test|development|production]
+  nodeEnv: "development"
 
   # CAMAP HX
   hostname: "camap.local"
