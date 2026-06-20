@@ -15,9 +15,6 @@ Documentation:
 
 Avec docker par exemple (sinon cf https://minikube.sigs.k8s.io/docs/drivers/)
 
-~~minikube start --driver=docker --ports=80:80 --ports=443:443~~
-~~minikube tunnel~~
-
 - `minikube start --driver=docker`
 - `minikube addons enable ingress`
 
@@ -74,6 +71,41 @@ Password : (cf. commande précédente)
 
 ---
 
+## Installer Camap
+
+Prérequis Minikube à mettre en place
+
+> Entrées /etc/hosts (IP à récupérer via minikube ip ou minikube tunnel)
+> Sous Windows : C:\Windows\System32\drivers\etc\hosts
+> `127.0.0.1   camap.local api.camap.local mailpit.local`
+
+### Secrets à créer manuellement:
+
+`kubectl create ns camap`
+
+#### MySQL
+
+```sh
+kubectl create secret generic camap-mysql -n camap \
+  --from-literal=mysql-root-password=rootpass \
+  --from-literal=mysql-database=camap \
+  --from-literal=mysql-username=camap \
+  --from-literal=mysql-password=camappass
+```
+
+#### Runtime
+
+
+
+```sh
+kubectl create secret generic camap-runtime -n camap \
+  --from-literal=CAMAP_KEY=une_cle_aleatoire_32chars \
+  --from-literal=JWT_ACCESS_TOKEN_SECRET=secret_access \
+  --from-literal=JWT_REFRESH_TOKEN_SECRET=secret_refresh \
+  --from-literal=SMTP_AUTH_USER="no" \
+  --from-literal=SMTP_AUTH_PASS="need"
+```
+
 ## 📦 root-app.yaml — App of Apps
 
 ```yaml
@@ -107,35 +139,16 @@ kubectl apply -f root-app.yaml -n argocd
 
 ---
 
-## Installer Camap
+## Lancement Camap
 
-Prérequis Minikube à mettre en place
+Camap devrait être détecté par argocd
 
-> Entrées /etc/hosts (IP à récupérer via minikube ip ou minikube tunnel)
-> Sous Windows : C:\Windows\System32\drivers\etc\hosts
-> `127.0.0.1   camap.local api.camap.local mailpit.local`
+Si ce n'est pas le cas, utiliser refresh apps
 
-### Secrets à créer manuellement:
+Pour accèder à Camap, lancer:
 
-`kubectl create ns camap`
+`minikube tunnel`
 
-#### MySQL
+Ensuite un premier accès à http://camap.local/install est nécessaire pour initialiser la bdd, puis un second accès permet la configuration du compte admin et d'un groupe de démonstration.
 
-```sh
-kubectl create secret generic camap-mysql -n camap \
-  --from-literal=mysql-root-password=rootpass \
-  --from-literal=mysql-database=camap \
-  --from-literal=mysql-username=camap \
-  --from-literal=mysql-password=camappass
-```
-
-#### Runtime
-
-```sh
-kubectl create secret generic camap-runtime -n camap \
-  --from-literal=CAMAP_KEY=une_cle_aleatoire_32chars \
-  --from-literal=JWT_ACCESS_TOKEN_SECRET=secret_access \
-  --from-literal=JWT_REFRESH_TOKEN_SECRET=secret_refresh \
-  --from-literal=SMTP_AUTH_USER="" \
-  --from-literal=SMTP_AUTH_PASS=""
-```
+⚠️Un compte admin est créé avec l'adresse admin@camap.tld et le mot de passe admin

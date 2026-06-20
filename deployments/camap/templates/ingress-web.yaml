@@ -12,6 +12,11 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: {{ .Values.ingress.timeouts.send | quote }}
     nginx.ingress.kubernetes.io/proxy-connect-timeout: {{ .Values.ingress.timeouts.connect | quote }}
     nginx.ingress.kubernetes.io/ssl-redirect: {{ .Values.ingress.web.tls.enabled | toString | quote }}
+    {{- $webSnippet := include "camap.ingress.webServerSnippet" . | trim }}
+    {{- if $webSnippet }}
+    nginx.ingress.kubernetes.io/server-snippet: |
+      {{- $webSnippet | nindent 6 }}
+    {{- end }}
     {{- if .Values.ingress.web.tls.clusterIssuer }}
     cert-manager.io/cluster-issuer: {{ .Values.ingress.web.tls.clusterIssuer | quote }}
     {{- end }}

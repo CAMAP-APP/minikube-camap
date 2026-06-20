@@ -94,7 +94,7 @@ camapConfig:
   instanceName: "camap"
   webmasterEmail: "admin@camap.local"
 
-  debug: "0"
+  debug: "1"
   cache: "0"
 
   # Mapbox: clé publique pk.*, donc peut rester hors secret
@@ -160,7 +160,7 @@ ingress:
       cgu: "http://127.0.0.1/cgu"
       privacy: "http://127.0.0.1/rgpd"
     security:
-      blockInstall: false
+      blockInstall: true
 
 autoscaling:
   web:
