@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mailpit-tags-config
-  labels:
-    app: mailpit
-data:
-  tags.yaml: |
-{{ toYaml .Values.mailpit.config.tags | indent 4 }}
