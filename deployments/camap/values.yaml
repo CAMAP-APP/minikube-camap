@@ -98,7 +98,7 @@ camapConfig:
   cache: "0"
 
   # Mapbox: clé publique pk.*, donc peut rester hors secret
-  mapboxKey: "pk.eyJ1IjoiYnViYXIiLCJhIjoiY2xhaTJoaDMxMGhsODNwbXpveHI5cmRvYSJ9.EamPFVWWXhGRzJX5SOU0xg"
+  mapboxKey: "pk.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 resources:
   api:
