@@ -82,7 +82,8 @@ camapConfig:
   camapLocalHost: "http://camap-web"
   camapBridgeApi: "http://api.camap.local"
   camapBridgeApiInternal: "http://camap-api:3010"
-  camapApiUrl: "http://api.camap.local"
+  # camapApiUrl: "http://api.camap.local"
+  camapApiUrl: "http://camap-api:3010"
 
   hxTriggerCrons: "true"
   themeId: "default"
