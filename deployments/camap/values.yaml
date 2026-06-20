@@ -1,12 +1,12 @@
 image:
   api:
     repository: ghcr.io/camap-app/camap-ts
-    tag: "feature-smtp-ignore-tls"
+    tag: "latest"
     pullPolicy: IfNotPresent
 
   web:
     repository: ghcr.io/camap-app/camap-hx
-    tag: "mantis-346"
+    tag: "latest"
     pullPolicy: IfNotPresent
 
   mysql:
@@ -166,7 +166,7 @@ ingress:
       cgu: "http://127.0.0.1/cgu"
       privacy: "http://127.0.0.1/rgpd"
     security:
-      blockInstall: true
+      blockInstall: false
 
 autoscaling:
   web:

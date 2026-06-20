@@ -2,5 +2,5 @@ apiVersion: v2
 name: camap
 description: Chart Camap (MySQL + API Nest + Neko)
 type: application
-version: 0.3.0
-appVersion: "staging-v3.0.0-rc15"
+version: 0.1.0
+appVersion: "latest"

@@ -4,14 +4,14 @@ metadata:
   name: mailpit
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "25"
+    argocd.argoproj.io/sync-wave: "10"
   labels:
     app.kubernetes.io/name: mailpit
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/CAMAP-APP/minikube-camap.git
+    repoURL: https://github.com/CAMAP-APP/minikube-camap.git    # <= MODIFIER POUR POINTER VERS VOTRE REPO
     targetRevision: refs/heads/main
     path: deployments/mailpit
     helm:

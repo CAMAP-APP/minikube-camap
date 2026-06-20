@@ -4,11 +4,11 @@ metadata:
   name: camap
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "30"
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   project: default
   source:
-    repoURL: https://github.com/CAMAP-APP/minikube-camap.git
+    repoURL: https://github.com/CAMAP-APP/minikube-camap.git    # <= MODIFIER POUR POINTER VERS VOTRE REPO
     targetRevision: refs/heads/main
     path: deployments/camap
   destination:
