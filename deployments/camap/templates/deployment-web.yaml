@@ -113,6 +113,17 @@ spec:
             - name: CAMAP_BRIDGE_API_INTERNAL
               value: {{ .Values.camapConfig.camapBridgeApiInternal | quote }}
 
+            # Variables de camapts.env.tpl exposées au navigateur via env.js
+            # (window.__APP_CONFIG__, généré par l'entrypoint camap-hx)
+            - name: CAMAP_HOST
+              value: {{ .Values.camapConfig.camapHost | quote }}
+
+            - name: CAMAP_BRIDGE_API
+              value: {{ .Values.camapConfig.camapBridgeApi | quote }}
+
+            - name: FRONT_URL
+              value: {{ .Values.camapConfig.camapApiUrl | quote }}
+
             - name: MAPBOX_KEY
               value: {{ .Values.camapConfig.mapboxKey | quote }}
 

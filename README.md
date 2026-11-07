@@ -32,6 +32,12 @@ minikube addons enable ingress
 minikube addons enable metrics-server
 ```
 
+> ⚠️ **Contexte kubectl** : `minikube start` bascule le contexte kubectl courant sur `minikube`.
+> Toutes les commandes `kubectl` de ce README s'appliquent au contexte courant : si vous utilisez
+> aussi d'autres clusters (production, préproduction…), vérifiez-le avant chaque session avec
+> `kubectl config current-context`, revenez-y avec `kubectl config use-context minikube`,
+> ou ajoutez `--context minikube` aux commandes.
+
 Tableau de bord (optionnel) :
 
 ```powershell
@@ -68,6 +74,11 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 Dans l'interface Argo CD : **Settings** > **Repositories** > **Connect Repo using HTTPS**
 
 - Repository URL : `https://github.com/<VOTRE_REPO>/minikube-camap.git`
+- Si votre dépôt est **privé** :
+  - Username : votre login GitHub
+  - Password : un token GitHub ([fine-grained token](https://github.com/settings/personal-access-tokens/new)) limité à ce dépôt, avec la permission **Contents : Read-only**
+
+Le statut de connexion doit passer à **Successful**. Un dépôt public ne demande pas d'identifiants.
 
 ---
 
@@ -149,12 +160,12 @@ Dans un terminal dédié (à laisser ouvert) :
 minikube tunnel
 ```
 
-Puis ouvrir dans l'ordre :
+Puis ouvrir **[http://camap.local/install](http://camap.local/install)** : le formulaire d'installation demande le nom du groupe, votre prénom et votre nom, puis crée le compte admin et un groupe de démonstration (avec un contrat et deux produits d'exemple).
 
-1. **[http://camap.local/install](http://camap.local/install)** — initialisation de la base de données
-2. **[http://camap.local/install](http://camap.local/install)** (second accès) — configuration du compte admin et d'un groupe de démonstration
+> ⚠️ Le compte admin est créé avec l'adresse `admin@camap.tld` et le mot de passe `admin`.
+> Une fois l'installation faite, `/install` affiche « CAMAP est déjà installé ».
 
-> ⚠️ Un compte admin est créé avec l'adresse `admin@camap.tld` et le mot de passe `admin`
+> ℹ️ Sous Windows, `minikube tunnel` peut afficher l'avertissement « Access to ports below 1024 may fail on Windows with OpenSSH clients older than v8.1 ». Avec un OpenSSH récent (Windows 11), il est sans conséquence.
 
 Mailpit (visualisation des emails) : **[http://mailpit.local](http://mailpit.local)**
 
