@@ -217,7 +217,7 @@ web:
 
       # env.js généré par entrypoint (local, no-cache)
       Alias /env.js "/srv/www/env.js"
-      <Files "/srv/www/env.js">
+      <Files "env.js">
         Require all granted
         AddType application/javascript .js
         Header set Cache-Control "no-store, must-revalidate"
