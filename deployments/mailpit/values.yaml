@@ -2,7 +2,7 @@ mailpit:
   replicaCount: 1
   image:
     repository: axllent/mailpit
-    tag: v1.30.2
+    tag: v1.33.0
     pullPolicy: IfNotPresent
 
   service:
